@@ -1,0 +1,13 @@
+The technologies we are going to use in this projects
+conditional statements
+loops
+dictionary
+CRUD operations
+
+
+if you are a teacher then you can 
+1. add student
+2. view all students
+3. check result
+4. exit
+

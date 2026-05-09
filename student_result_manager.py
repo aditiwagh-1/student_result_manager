@@ -9,7 +9,8 @@ while True:
     print("1. add student")
     print("2. view all students")
     print("3. check the result")
-    print("4. exit\n\n")
+    print("4. Result Calculation")
+    print("5. exit")
     choice = int(input("enter your choices = "))
     # if else conditions for adding the student in the empty dictionary
     if choice == 1:
@@ -19,9 +20,11 @@ while True:
             stu_marks = int(input("enter the student marks = "))
             # adding the elments in he ditionary in thekey value pair
             student[stu_name] = stu_marks
+            with open("students.txt", "a") as file:
+                file.write(f"{stu_name}:{stu_marks}\n")
             print(f"{stu_name} Successfully added !\n\n\n\n")
         elif(user_choice == "no"):
-            print("exit !\n\n\n\n")
+            print("exit !")
             print("choose the option ......")
             print("1. add student")
             print("2. view all students")
@@ -35,7 +38,7 @@ while True:
             print("no student found!!!")
         else:
             for stu_name, stu_marks in student.items():
-                print(stu_name,":",stu_marks)
+                    print(stu_name,":",stu_marks)
      
     # this elif condition is for checking the result
     elif choice == 3:
@@ -49,12 +52,44 @@ while True:
                 print("student failed !!")
         else:
             print("not found in the memory !!")
-    # condition for the exiting from the program....
-    elif choice == 4:
-        print("Exiting .............")
+    elif choice == 4: 
+        name = input("Enter the student name = ")
+        if name in student:
+            sub1 = int(input("enter the marks of subject 1 = "))
+            sub2 = int(input("enter the marks of subject 2 = "))
+            sub3 = int(input("enter the marks of subject 3 = "))
+            sub4 = int(input("enter the marks of subject 4 = "))
+            sub5 = int(input("enter the marks of subject 5 = "))
+            sub6 = int(input("enter the marks of subject 6 = "))
+            total = (sub1+sub2+sub3+sub4+sub5+sub6)
+            avg = total / 6
+            print("Total marks = ",total)
+            print("Total percentage = ",avg)
+            if(avg >=91 and avg<=100 ):
+                print("Grade A1\n")
+                print("Outstanding\n")
+            elif(avg >= 81 and avg <=90):
+                print("Grade A2\n")
+                print("Excellent\n")
+            elif(avg >=71 and avg <= 80):
+                print("Grade B1\n")
+                print("Very Good\n")
+            elif(avg >=61 and avg<= 70):
+                print("Grade B2\n")
+                print("Good\n")
+            elif(avg >=51 and avg<=60):
+                print("Grade C1\n")
+                print("Fair\n")
+            elif(avg >=33 and avg<= 50):
+                print("passed!\n")
+            elif(avg <=33):
+                print("Failed!\n")
+            else:
+                print("Invalide entry!\n")
+        else :
+            print("student not found !!")
+# condition for the exiting from the program....
+    elif choice == 5:
+        print("Exiting .............\n")
         break
-    else:
-        print("Invalide Input")
-        
-
-print("program ended success0fully")    
+    

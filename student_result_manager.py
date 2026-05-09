@@ -1,5 +1,13 @@
 # empty dictionary declaration
 student ={}
+try:
+    with open ("students.txt", "r") as file:
+        for line in file:
+            stu_name, stu_marks = line.strip().split(":")
+            student[stu_name] = int(stu_marks)
+except FileNotFoundError:
+    print("file not founded !!!")
+    pass
 # while loop
 while True:
     # initialization of the project

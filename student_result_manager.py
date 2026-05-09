@@ -3,8 +3,10 @@ student ={}
 try:
     with open ("students.txt", "r") as file:
         for line in file:
-            stu_name, stu_marks = line.strip().split(":")
-            student[stu_name] = int(stu_marks)
+            line = line.strip()
+            if ":" in line:
+                stu_name , stu_marks = line.split(":")
+                student[stu_name] = int(stu_marks)
 except FileNotFoundError:
     print("file not founded !!!")
     pass
@@ -25,12 +27,15 @@ while True:
         user_choice = input("you want to add student (yes/no) = ")
         if (user_choice == "yes"):
             stu_name = input("enter the student name = ")
-            stu_marks = int(input("enter the student marks = "))
+            if stu_name in student:
+                print("student already exits duffer!!")
+            else:
+                stu_marks = int(input("enter the student marks = "))
             # adding the elments in he ditionary in thekey value pair
-            student[stu_name] = stu_marks
-            with open("students.txt", "a") as file:
-                file.write(f"{stu_name}:{stu_marks}\n")
-            print(f"{stu_name} Successfully added !\n\n\n\n")
+                student[stu_name] = stu_marks
+                with open("students.txt", "a") as file:
+                    file.write(f"{stu_name} : {stu_marks}\n")
+                print(f"{stu_name} Successfully added !\n\n\n\n")
         elif(user_choice == "no"):
             print("exit !")
             print("choose the option ......")

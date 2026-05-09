@@ -3,3 +3,7 @@ neha:90
 yash:99
 aditi:100
 Aditi:90
+riya:0
+aditi:100
+aditi:80
+priya = 20

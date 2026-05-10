@@ -7,3 +7,4 @@ riya:0
 aditi:100
 aditi:80
 priya = 20
+A. : 90
